@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../jquery-1.11.3.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("ul li").click(function(){
+                $("p").replaceWith("<strong>妮子不喜欢的水果是？</strong>");
+               $(this).clone(true).appendTo("ul");
+            });
+            var $para = $("p");
+            var p_txt = $para.attr("title");
+            console.log(p_txt);
+//            $("ul li").click(function(){
+//                alert($(this).html());
+//            });
+//            var $li = $("ul li:eq(1)").detach();
+//            $li.appendTo("ul");
+        });
+
+    </script>
+</head>
+<body>
+<div>
+    <p title="你最喜欢的水果">你最喜欢的水果是？</p>
+    <ul class="fruits">
+        <li title="橘子">橘子</li>
+        <li title="橙子">橙子</li>
+        <li title="柚子">柚子</li>
+    </ul>
+</div>
+</body>
+</html>
