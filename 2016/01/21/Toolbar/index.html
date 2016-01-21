@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>这是我的博客哦</title>
+    <title>v7中ToolBar的使用 | 这是我的博客哦</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xu Mingyang">
     
 
     
-    <meta name="description" content="dream it possible">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是我的博客哦">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android.support.v7.widget.Toolbar做toolbarToolbar是一个专门做tool的东东，其中封装了很多好东西，比我之前自己写确实要方便很多。再加上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="v7中ToolBar的使用">
+<meta property="og:url" content="http://yoursite.com/2016/01/21/Toolbar/index.html">
 <meta property="og:site_name" content="这是我的博客哦">
-<meta property="og:description" content="dream it possible">
+<meta property="og:description" content="今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android.support.v7.widget.Toolbar做toolbarToolbar是一个专门做tool的东东，其中封装了很多好东西，比我之前自己写确实要方便很多。再加上">
+<meta property="og:updated_time" content="2016-01-21T14:48:27.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这是我的博客哦">
-<meta name="twitter:description" content="dream it possible">
+<meta name="twitter:title" content="v7中ToolBar的使用">
+<meta name="twitter:description" content="今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android.support.v7.widget.Toolbar做toolbarToolbar是一个专门做tool的东东，其中封装了很多好东西，比我之前自己写确实要方便很多。再加上">
 
     
     <link rel="alternative" href="/atom.xml" title="这是我的博客哦" type="application/atom+xml">
@@ -73,12 +74,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2016/01/21/Toolbar/" title="v7中ToolBar的使用" itemprop="url">v7中ToolBar的使用</a>
@@ -92,9 +91,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <h3 id="今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android-support-v7-widget-Toolbar做toolbar">今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android.support.v7.widget.Toolbar做toolbar</h3><p><strong>Toolbar</strong>是一个专门做tool的东东，其中封装了很多好东西，比我之前自己写确实要方便很多。再加上<strong>PagerSlidingTabStrip，Fragtment和Viewpager</strong>基本上一个app框架就搭好了，特别是在包含好几个tab页面的app中，我现在记录下我写的过程，以免后来忘记供自己随时查阅。</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android-support-v7-widget-Toolbar做toolbar"><span class="toc-number">1.</span> <span class="toc-text">今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android.support.v7.widget.Toolbar做toolbar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#android-support-v7中几个用到的类"><span class="toc-number">2.</span> <span class="toc-text">android.support.v7中几个用到的类</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android-support-v7-widget-Toolbar做toolbar">今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android.support.v7.widget.Toolbar做toolbar</h3><p><strong>Toolbar</strong>是一个专门做tool的东东，其中封装了很多好东西，比我之前自己写确实要方便很多。再加上<strong>PagerSlidingTabStrip，Fragtment和Viewpager</strong>基本上一个app框架就搭好了，特别是在包含好几个tab页面的app中，我现在记录下我写的过程，以免后来忘记供自己随时查阅。</p>
 <h3 id="android-support-v7中几个用到的类">android.support.v7中几个用到的类</h3><ol>
 <li><strong>ActionBarDrawerToggle</strong>官方的解释是：This class provides a handy way to tie together the functionality of<br>{@link android.support.v4.widget.DrawerLayout} and the framework <code>ActionBar</code> to implement the recommended design for navigation drawers.</li>
 <li><strong>ShareActionProvider</strong>分享控件</li>
@@ -263,14 +269,9 @@ xmlns:tools=<span class="string">"http://schemas.android.com/tools"</span> tools
     <span class="keyword">return</span> <span class="type">intent</span>;
 }
 </code></pre><p>需要注意的是：mShareActionProvider.setShareIntent(getShareIntent());可能找不到setShareIntent这个方法，这个问题困扰我蛮久，但是很简单，因为ShareActionProvider不止在v7中有，v4中也有，貌似非这两个类中也有一个，所以import的时候要特别注意，不要import错了。否则怎么都找不到撒。好了今天该回去了，貌似就是贴代码了，木办法，还是菜鸟一个，慢慢学吧。</p>
-</style></p>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+</style></p>  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -283,298 +284,43 @@ xmlns:tools=<span class="string">"http://schemas.android.com/tools"</span> tools
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2016/01/21/Toolbar/" data-title="v7中ToolBar的使用 | 这是我的博客哦" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/01/20/WebView/" title="WebView打开本地图片" itemprop="url">WebView打开本地图片</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Xu Mingyang" target="_blank" itemprop="author">Xu Mingyang</a>
-		
-  <p class="article-time">
-    <time datetime="2016-01-20T02:49:05.000Z" itemprop="datePublished"> 发表于 2016-01-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="使用WebView打开本地图片的一些小问题">使用WebView打开本地图片的一些小问题</h3><p><strong>WebView</strong> Android中默认不支持上传文件，不同版本的WebView有区别，因此需要对不同版本适配，这里只简单介绍android5中的使用，至于6和更低版本的，只要在WebChromeClient中重写openFileChooser就可以；</p>
-<h3 id="首先在Activity中声明">首先在Activity中声明</h3><pre><code><span class="keyword">private</span> WebView webView;
-<span class="keyword">private</span> ProgressDialog progressBar;
-<span class="keyword">private</span> ValueCallback&lt;Uri[]&gt; mUploadMessage;
-<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> FILECHOOSER_RESULTCODE = <span class="number">1</span>;
-</code></pre><h3 id="接着在Activity中找到WebView并设置">接着在Activity中找到WebView并设置</h3><pre><code>webView.getSettings().setJavaScriptEnabled(<span class="literal">true</span>);<span class="comment">//设置可以和JS交互</span>
-webView.setWebChromeClient(<span class="keyword">new</span> MyWebChromeClient());<span class="comment">//设置打开文件和load进度发生变化时的回调</span>
-webView.setWebViewClient(<span class="keyword">new</span> MyWebClient());<span class="comment">//设置不跳转至系统默认浏览器，就从该webView中打开</span>
-webView.loadUrl(<span class="string">"http://www.script-tutorials.com/demos/199/index.html"</span>);<span class="comment">//此处使用的链接是在网上找到的别人写好的链接，可能随时会不能用</span>
-</code></pre><h3 id="创建一个WebViewClient">创建一个WebViewClient</h3><pre><code> <span class="class"><span class="keyword">class</span> <span class="title">MyWebClient</span> <span class="keyword">extends</span> <span class="title">WebViewClient</span> </span>{
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageStarted</span><span class="params">(WebView view, String url, Bitmap favicon)</span> </span>{
-        <span class="keyword">super</span>.onPageStarted(view, url, favicon);
-        Log.i(<span class="string">"UP_LOAD"</span>,<span class="string">"111111111111111"</span>);
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>{
-        view.loadUrl(url);
-        <span class="keyword">return</span> <span class="keyword">true</span>;
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView view, String url)</span> </span>{
-        <span class="keyword">super</span>.onPageFinished(view, url);
-        Log.i(<span class="string">"UP_LOAD"</span>,<span class="string">"4444444444444-----------&gt;"</span>);
-       progressBar.hide();
-    }
-}
-</code></pre><p><strong>WebViewClient</strong>的一些方法说明，webView主要是帮助处理各种通知和请求事件的，和WebChromeClient的区别在于如果只是用来处理一些html页面的内同，只用WebViewClient就足够了，但是如果需要丰富的效果，如上传文件、JS等，就要用到WebChromeClient。</p>
-<ol>
-<li>点击请求链接时使用，重写该方法返回true代表跳转至系统默认浏览器还是从该webView中跳转；<br> `public boolean shouldOverrideUrlLoading(WebView view, String url) { <pre><code>view.loadUrl(url);
-<span class="keyword">return</span> <span class="literal">true</span>;}`
-</code></pre></li>
-<li>在页面加载时开始调用,和WebChromeClient中的onProgressChanged相比回调晚<br> <code>public void onPageStarted(WebView view, String url, Bitmap favicon) {super.onPageFinished(view, url);}</code></li>
-<li>在页面加载结束时调用，和WebChromeCLient中onProgressChanged相比回调晚<br> `public void onPageFinished(WebView view, String url) {<pre><code>    <span class="keyword">super</span>.onPageFinished(view, url);
-}`
-</code></pre></li>
-</ol>
-<h3 id="创建一个WebChromeClient">创建一个WebChromeClient</h3><pre><code>public <span class="class"><span class="keyword">class</span> <span class="title">MyWebChromeClient</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">WebChromeClient</span> {</span>
-
-    <span class="comment">//此函数的onProgressChanged函数触发早于WebViewClient但WebViewClient的结束时间晚于该函数，</span>
-    <span class="comment">// 所以在该函数中开始，在WebViewClient函数中结束.不论在setVebViewClient和SetWebChromeClient的前后</span>
-    <span class="annotation">@Override</span>
-    public void onProgressChanged(<span class="type">WebView</span> view, int newProgress) {
-        <span class="keyword">if</span> (newProgress &lt; <span class="number">100</span>){
-            <span class="type">Log</span>.i(<span class="string">"UP_LODE"</span>,<span class="string">"2222222----------------&gt;"</span>+newProgress);
-            progressBar.setMessage(<span class="string">"加载中"</span>);
-            progressBar.show();
-        }<span class="keyword">else</span>{
-            <span class="type">Log</span>.i(<span class="string">"UP_LOAD"</span>,<span class="string">"333333-----------&gt;"</span>);
-        }
-    }
-
-    <span class="comment">//Android 5.0+</span>
-    <span class="annotation">@Override</span>
-    public boolean onShowFileChooser(<span class="type">WebView</span> webView, <span class="type">ValueCallback</span>&lt;<span class="type">Uri</span>[]&gt; filePathCallback, <span class="type">FileChooserParams</span> fileChooserParams) {
-        <span class="keyword">if</span> (mUploadMessage != <span class="literal">null</span>) {
-            mUploadMessage.onReceiveValue(<span class="literal">null</span>);
-        }
-
-        mUploadMessage = filePathCallback;
-        <span class="type">Intent</span> i = <span class="keyword">new</span> <span class="type">Intent</span>(<span class="type">Intent</span>.<span class="type">ACTION_GET_CONTENT</span>);
-        i.addCategory(<span class="type">Intent</span>.<span class="type">CATEGORY_OPENABLE</span>);
-        i.setType(<span class="string">"*/*"</span>);
-
-        startActivityForResult(<span class="type">Intent</span>.createChooser(i, <span class="string">"File Chooser"</span>), <span class="type">FILECHOOSER_RESULTCODE</span>);
-        <span class="keyword">return</span> <span class="literal">true</span>;
-    }
-}
-</code></pre><p>以上只能针对android5，若要适配android3.0+需要重写以下代码</p>
-<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">openFileChooser</span><span class="params">(ValueCallback&lt;Uri&gt; uploadMsg)</span> </span>{
-
-<span class="keyword">if</span> (mUploadMessage != <span class="keyword">null</span>) {
-    mUploadMessage.onReceiveValue(<span class="keyword">null</span>);
-}
-mUploadMessage = uploadMsg;
-Intent i = <span class="keyword">new</span> Intent(Intent.ACTION_GET_CONTENT);
-i.addCategory(Intent.CATEGORY_OPENABLE);
-i.setType(<span class="string">"*/*"</span>);
-startActivityForResult(Intent.createChooser(i, <span class="string">"File Chooser"</span>), FILECHOOSER_RESULTCODE);
-}
-</code></pre><p>若要适配Android 4.1需重写以下代码</p>
-<pre><code>public <span class="keyword">void</span> openFileChooser(ValueCallback&lt;<span class="built_in">Uri</span>&gt; uploadMsg, <span class="built_in">String</span> acceptType, <span class="built_in">String</span> capture) {
-
-<span class="keyword">if</span> (mUploadMessage != <span class="keyword">null</span>) {
-    mUploadMessage.onReceiveValue(<span class="keyword">null</span>);
-}
-mUploadMessage = uploadMsg;
-Intent i = <span class="keyword">new</span> Intent(Intent.ACTION_GET_CONTENT);
-i.addCategory(Intent.CATEGORY_OPENABLE);
-i.setType(<span class="string">"*/*"</span>);
-startActivityForResult(Intent.createChooser(i, <span class="string">"File Chooser"</span>), FILECHOOSER_RESULTCODE);
-}
-</code></pre><p>我的机器上只装了Android5所以低版本的并未验证，但是应该是可靠地，毕竟这个比较简单，在Android5中openFileChooser已经被丢弃，so呢，重写就好了。</p>
-<p><strong>如果想触发进度条，我的理解是在WebChromeCLient中的onProgresChanged中触发显示进度条，在WebVIewClient中的onPageFinished中结束进度条。</strong></p>
-<p>不知道这样理解有没有问题，至少在我的程序中这样没出错而且是比较靠谱的。</p>
-<p><strong>还有一个问题需要注意：</strong>由于不同版本的差别，Android 5.0以下的版本，ValueCallback 的onReceiveValue接收的参数类型是Uri, 5.0及以上版本接收的是Uri数组，在传值的时候需要注意。</p>
-<h3 id="接着需要在Activity中回调onActivityResult">接着需要在Activity中回调onActivityResult</h3><p><strong>处理接收到的文件，传给网页响应，前面我们使用startActivityForResult打开文件，该方法中接受结果</strong></p>
-<pre><code>   @<span class="type">Override</span>
-protected <span class="type">void</span> onActivityResult(<span class="type">int</span> requestCode, <span class="type">int</span> resultCode, <span class="type">Intent</span> data) {
-    super.onActivityResult(requestCode, resultCode, data);
-    <span class="keyword">if</span> (requestCode == <span class="type">FILECHOOSER_RESULTCODE</span>) {
-        <span class="keyword">if</span> (null == mUploadMessage)
-            <span class="keyword">return</span>;
-        <span class="type">Uri</span> <span class="literal">result</span> = (data == null || resultCode != <span class="type">RESULT_OK</span>) ? null: data.getData();
-        <span class="keyword">if</span> (<span class="literal">result</span> != null) {
-            mUploadMessage.onReceiveValue(new <span class="type">Uri</span>[]{<span class="literal">result</span>});
-        } <span class="keyword">else</span> {
-            mUploadMessage.onReceiveValue(new <span class="type">Uri</span>[]{});
-        }
-        mUploadMessage = null;
-    }
-}
-</code></pre><p>即使获取的结果为null，也要传给web，即直接调用mUploadMessage.onReceiveValue(null),否则网页会阻塞。<br>注意混淆文件的时候onFileChooser已经被抛弃需要特别设置该方法不混淆，否则将无法选择文件。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/WebView-onShowFileChooser-openFileChooser/">WebView onShowFileChooser openFileChooser</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/01/20/WebView/"  title="WebView打开本地图片">
+ <strong>下一篇：</strong><br/> 
+ <span>WebView打开本地图片
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/12/24/My-New-Post/" title="My New Post" itemprop="url">My New Post</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Xu Mingyang" target="_blank" itemprop="author">Xu Mingyang</a>
-		
-  <p class="article-time">
-    <time datetime="2015-12-24T08:49:05.000Z" itemprop="datePublished"> 发表于 2015-12-24</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>11111111111111111111111<br>324<br>25464</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/12/03/hello-world/" title="hello world" itemprop="url">hello world</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Xu Mingyang" target="_blank" itemprop="author">Xu Mingyang</a>
-		
-  <p class="article-time">
-    <time datetime="2015-12-03T11:29:51.000Z" itemprop="datePublished"> 发表于 2015-12-03</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>这是我的第一篇博客</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/第一篇博客/">第一篇博客</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android-support-v7-widget-Toolbar做toolbar"><span class="toc-number">1.</span> <span class="toc-text">今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android.support.v7.widget.Toolbar做toolbar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#android-support-v7中几个用到的类"><span class="toc-number">2.</span> <span class="toc-text">android.support.v7中几个用到的类</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -731,12 +477,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -807,4 +630,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
