@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/21/Toolbar/index.html">
 <meta property="og:site_name" content="这是我的博客哦">
 <meta property="og:description" content="今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android.support.v7.widget.Toolbar做toolbarToolbar是一个专门做tool的东东，其中封装了很多好东西，比我之前自己写确实要方便很多。再加上">
-<meta property="og:updated_time" content="2016-01-21T14:54:35.305Z">
+<meta property="og:updated_time" content="2016-01-21T14:55:33.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="v7中ToolBar的使用">
 <meta name="twitter:description" content="今天用了一个新的东西做了一个toolbar，我之前的toolbar都是自己写的view，tab页面也都是自己写的view，后来tabs页面换成了viewpager，但是toolbar一直还是用的view，今天我给改成了android.support.v7.widget.Toolbar做toolbarToolbar是一个专门做tool的东东，其中封装了很多好东西，比我之前自己写确实要方便很多。再加上">
@@ -104,13 +104,17 @@
 <h3 id="android-support-v7中几个用到的类">android.support.v7中几个用到的类</h3><ol>
 <li><strong>ActionBarDrawerToggle</strong>官方的解释是：This class provides a handy way to tie together the functionality of<br>{@link android.support.v4.widget.DrawerLayout} and the framework <code>ActionBar</code> to implement the recommended design for navigation drawers.</li>
 <li><strong>ShareActionProvider</strong>分享控件</li>
-<li><strong>SearchView</strong>搜索控件，功能很强大<h3 id="先声明几个style文件">先声明几个style文件</h3> <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"><pre><code><span class="comment">&lt;!-- Customize your theme here. --&gt;</span>
+<li><p><strong>SearchView</strong>搜索控件，功能很强大</p>
+<h3 id="先声明几个style文件">先声明几个style文件</h3><p> <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"></p>
+<pre><code><span class="comment">&lt;!-- Customize your theme here. --&gt;</span>
 <span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="title">item</span>&gt;</span>
 <span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="title">item</span>&gt;</span>
 <span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="title">item</span>&gt;</span>
-</code></pre> </style><br> <style name="AppTheme.NoActionBar"><pre><code>&lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowActionBar"</span>&gt;<span class="constant">false</span>&lt;/<span class="property">item</span>&gt;
+</code></pre><p> </style><br> <style name="AppTheme.NoActionBar"></p>
+<pre><code>&lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowActionBar"</span>&gt;<span class="constant">false</span>&lt;/<span class="property">item</span>&gt;
 &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowNoTitle"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;
-</code></pre> </style><br> <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"><br> <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" /><br>这是我们要用上的文件，至于toolbar各个不同部位的颜色，可以自己随意处理。注意如果在android5以上的话需要在vlues-21下面的styles.xml文件里面复制一份一样的。我是这么做得，方便，也可以通过设置parent的方法吧，我还不会，菜鸟一个，只会复制撒。</li>
+</code></pre><p> </style><br> <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"><br> <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" /><br>这是我们要用上的文件，至于toolbar各个不同部位的颜色，可以自己随意处理。注意如果在android5以上的话需要在vlues-21下面的styles.xml文件里面复制一份一样的。我是这么做得，方便，也可以通过设置parent的方法吧，我还不会，菜鸟一个，只会复制撒。</p>
+</li>
 </ol>
 <p><strong>Toolbar</strong>尽量写在一个单独的文件中，这样其他的xml文件可以随时包含该toolbar；这是我的toolbar.xml文件</p>
 <pre><code><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
@@ -274,7 +278,7 @@ xmlns:tools=<span class="string">"http://schemas.android.com/tools"</span> tools
     <span class="keyword">return</span> <span class="type">intent</span>;
 }
 </code></pre><p>需要注意的是：mShareActionProvider.setShareIntent(getShareIntent());可能找不到setShareIntent这个方法，这个问题困扰我蛮久，但是很简单，因为ShareActionProvider不止在v7中有，v4中也有，貌似非这两个类中也有一个，所以import的时候要特别注意，不要import错了。否则怎么都找不到撒。好了今天该回去了，貌似就是贴代码了，木办法，还是菜鸟一个，慢慢学吧。</p>
-</style></li></ol>  
+</style></p></li></ol>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
