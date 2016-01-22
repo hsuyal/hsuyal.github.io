@@ -81,6 +81,95 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/01/22/ChangeTheme/" title="改变主题（Android5）" itemprop="url">改变主题（Android5）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xu Mingyang" target="_blank" itemprop="author">Xu Mingyang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-22T07:20:45.000Z" itemprop="datePublished"> 发表于 2016-01-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h4 id="这两天研究TooleBar正好用上Style和Theme，就做了一些改变Theme的小Demo，">这两天研究TooleBar正好用上Style和Theme，就做了一些改变Theme的小Demo，</h4><p>style文件设置两个简单的主题如下：<br>    <!--白天主题--><br>    <style name="dayTheme" parent="AppTheme"><br>        <item name="android:textColor">#111111</item><br>        <item name="android:background">#ffee11</item><br>        <item name="windowActionBar">false</item><br>        <item name="windowNoTitle">true</item><br>    </style></p>
+<pre><code>&lt;!--夜间主题--&gt;
+&lt;style name=<span class="string">"nightTheme"</span> parent=<span class="string">"AppTheme"</span>&gt;
+    &lt;item name=<span class="string">"android:textColor"</span>&gt;<span class="hexcolor">#eeeeee</span>&lt;/item&gt;
+    &lt;item name=<span class="string">"android:background"</span>&gt;<span class="hexcolor">#111111</span> &lt;/item&gt;
+    &lt;item name=<span class="string">"windowActionBar"</span>&gt;false&lt;/item&gt;
+    &lt;item name=<span class="string">"windowNoTitle"</span>&gt;true&lt;/item&gt;
+&lt;/style&gt;
+</code></pre><p>在每个自定义主题都要加上这两行代码，否则会报这样的错误，原因已经很清楚了。java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.xu.themedemo/com.example.xu.themedemo.MainActivity}: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.</p>
+<pre><code>&lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowActionBar"</span>&gt;<span class="constant">false</span>&lt;/<span class="property">item</span>&gt;
+&lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowNoTitle"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;
+</code></pre><h3 id="MainActivity">MainActivity</h3><p>setTheme()的设置要在setContentView()之前，否则不会显示。    </p>
+<pre><code>setTheme<span class="list">(<span class="keyword">R</span>.style.dayTheme)</span><span class="comment">;</span>
+setContentView<span class="list">(<span class="keyword">R</span>.layout.activity_main)</span><span class="comment">;</span>
+Toolbar toolbar = <span class="list">(<span class="keyword">Toolbar</span>)</span> findViewById<span class="list">(<span class="keyword">R</span>.id.toolbar)</span><span class="comment">;</span>
+setSupportActionBar<span class="list">(<span class="keyword">toolbar</span>)</span><span class="comment">;</span>
+</code></pre><p>如果想做button响应改变样式，需要使用SharePreference，在点击按钮时改变SharePreference的键值对，再打开Activity时获取键值对，根据相应的键值对选择合适的style。<br>在setTheme之前加一个判断语句：</p>
+<pre><code>     preferences = getSharedPreferences(<span class="string">"theme"</span>, Context.MODE_PRIVATE);
+    <span class="keyword">if</span>(preferences.getBoolean(<span class="string">"theme"</span>,<span class="keyword">true</span>)){
+        <span class="comment">//设置白天模式</span>
+        setTheme(R.style.dayTheme);
+    }<span class="keyword">else</span>{
+        <span class="comment">//设置夜间模式</span>
+        flag = <span class="keyword">false</span>;
+        setTheme(R.style.nightTheme);
+    }
+<span class="keyword">final</span> SharedPreferences.Editor editor = preferences.edit();<span class="comment">//获取编辑器</span>
+
+    findViewById(R.id.hello_world).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() {
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{
+            editor.putBoolean(<span class="string">"theme"</span>, !flag).commit();
+        }
+    });
+</code></pre><p>此时的更改主题需要在Acitivty重新启动时更改，但是如果不重新启动Activity的时候，就是对该需要换主题的Activity的所有背景和字体等操作换一下属性就ok了，不需要对每一个Activity进行操作。但是条件复杂的情况下需要遍历每一个view，暂时不知道更简单的不通过重启Activity的方法去更换主题，因为主题在setCOntentView()之后没有效果，所以暂时不知道方法，作为笔记吧先放到这里，以后补充。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Theme-Style-SharedPreferences/">Theme Style SharedPreferences</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/01/21/MyToolBar/" title="v7中ToolBar的使用" itemprop="url">v7中ToolBar的使用</a>
   </h1>
   <p class="article-author">By
@@ -608,6 +697,10 @@ protected <span class="type">void</span> onActivityResult(<span class="type">int
 <div class="tagslist">
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Theme-Style-SharedPreferences/" title="Theme Style SharedPreferences">Theme Style SharedPreferences<sup>1</sup></a></li>
+			
 		
 			
 				<li><a href="/tags/第一篇博客/" title="第一篇博客">第一篇博客<sup>1</sup></a></li>
