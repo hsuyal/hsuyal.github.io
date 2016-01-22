@@ -81,7 +81,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/01/21/Toolbar/" title="v7中ToolBar的使用" itemprop="url">v7中ToolBar的使用</a>
+      <a href="/2016/01/21/MyToolBar/" title="v7中ToolBar的使用" itemprop="url">v7中ToolBar的使用</a>
   </h1>
   <p class="article-author">By
        
@@ -98,18 +98,22 @@
 <h3 id="android-support-v7中几个用到的类">android.support.v7中几个用到的类</h3><ol>
 <li><strong>ActionBarDrawerToggle</strong>官方的解释是：This class provides a handy way to tie together the functionality of<br>{@link android.support.v4.widget.DrawerLayout} and the framework <code>ActionBar</code> to implement the recommended design for navigation drawers.</li>
 <li><strong>ShareActionProvider</strong>分享控件</li>
-<li><strong>SearchView</strong>搜索控件，功能很强大<h3 id="先声明几个style文件">先声明几个style文件</h3> <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"><pre><code><span class="comment">&lt;!-- Customize your theme here. --&gt;</span>
-<span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="title">item</span>&gt;</span>
-<span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="title">item</span>&gt;</span>
-<span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="title">item</span>&gt;</span>
-</code></pre> </style><br> <style name="AppTheme.NoActionBar"><pre><code>&lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowActionBar"</span>&gt;<span class="constant">false</span>&lt;/<span class="property">item</span>&gt;
-&lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowNoTitle"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;
-</code></pre> </style><br> <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"> <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-</li>
+<li><strong>SearchView</strong>搜索控件，功能很强大</li>
 </ol>
-<p>这是我们要用上的文件，至于toolbar各个不同部位的颜色，可以自己随意处理。注意如果在android5以上的话需要在vlues-21下面的styles.xml文件里面复制一份一样的。我是这么做得，方便，也可以通过设置parent的方法吧，我还不会，菜鸟一个，只会复制撒。</p>
-<p><strong>Toolbar</strong>尽量写在一个单独的文件中，这样其他的xml文件可以随时包含该toolbar；这是我的toolbar.xml文件</p>
+<h3 id="声明style文件">声明style文件</h3><p><strong>Toolbar</strong>尽量写在一个单独的文件中，这样其他的xml文件可以随时包含该toolbar；这是我的toolbar.xml文件</p>
+<pre><code>&lt;style <span class="property">name</span>=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;
+    &lt;!<span class="comment">-- Customize your theme here. --&gt;</span>
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"colorPrimary"</span>&gt;@color/colorPrimary&lt;/<span class="property">item</span>&gt;
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;@color/colorPrimaryDark&lt;/<span class="property">item</span>&gt;
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"colorAccent"</span>&gt;@color/colorAccent&lt;/<span class="property">item</span>&gt;
+&lt;/style&gt;
+&lt;style <span class="property">name</span>=<span class="string">"AppTheme.NoActionBar"</span>&gt;
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowActionBar"</span>&gt;<span class="constant">false</span>&lt;/<span class="property">item</span>&gt;
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowNoTitle"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;
+&lt;/style&gt;
+&lt;style <span class="property">name</span>=<span class="string">"AppTheme.AppBarOverlay"</span> parent=<span class="string">"ThemeOverlay.AppCompat.Dark.ActionBar"</span> /&gt;
+&lt;style <span class="property">name</span>=<span class="string">"AppTheme.PopupOverlay"</span> parent=<span class="string">"ThemeOverlay.AppCompat.Light"</span> /&gt;
+</code></pre><p>这是我们要用上的文件，至于toolbar各个不同部位的颜色，可以自己随意处理。注意如果在android5以上的话需要在vlues-21下面的styles.xml文件里面复制一份一样的。我是这么做得，方便，也可以通过设置parent的方法吧，我还不会，菜鸟一个，只会复制撒。<br><strong>Toolbar</strong>尽量写在一个单独的文件中，这样其他的xml文件可以随时包含该toolbar；这是我的toolbar.xml文件</p>
 <pre><code><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="tag">&lt;<span class="title">android.support.v7.widget.Toolbar</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
 <span class="attribute">xmlns:app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span>
@@ -203,7 +207,7 @@
 
 <span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span>
 </code></pre><p>接下来就是代码的主体部分，内容蛮少，但是用到几个重要的API</p>
-<p>###代码的MainActivity###<br>这是一些声明：</p>
+<h3 id="代码的MainActivity">代码的MainActivity</h3><p>这是一些声明：</p>
 <pre><code> <span class="keyword">private</span> DrawerLayout mDrawerLayout;
 <span class="keyword">private</span> ActionBarDrawerToggle mDrawerToggle;
 <span class="keyword">private</span> PagerSlidingTabStrip mPagerSlidingTabStrip;
@@ -271,7 +275,7 @@ xmlns:tools=<span class="string">"http://schemas.android.com/tools"</span> tools
     <span class="keyword">return</span> <span class="type">intent</span>;
 }
 </code></pre><p>需要注意的是：mShareActionProvider.setShareIntent(getShareIntent());可能找不到setShareIntent这个方法，这个问题困扰我蛮久，但是很简单，因为ShareActionProvider不止在v7中有，v4中也有，貌似非这两个类中也有一个，所以import的时候要特别注意，不要import错了。否则怎么都找不到撒。好了今天该回去了，貌似就是贴代码了，木办法，还是菜鸟一个，慢慢学吧。</p>
-</style></li></ol>
+
         
         
         <p class="article-more-link">
